@@ -115,37 +115,35 @@ const galleryImages = [
   { src: "images/landscape_background.jpg", caption: "Landscape as biological context" },
   { src: "images/fieldwork_turkana_group.jpg", caption: "Collaborative fieldwork" },
   { src: "images/in_the_field.jpg", caption: "Notes from the field" },
-  { src: "images/presentation.jpg", caption: "Sharing the work" },
-  { src: "images/lab_microscope.jpg", caption: "Molecular phenotyping" },
-  { src: "images/desert_background.jpg", caption: "Dryland ecology" },
-  { src: "images/snow_princeton.jpg", caption: "Princeton seasons" },
-  { src: "images/lab_photo.jpg", caption: "Lab work" },
+  { src: "images/presentation.jpg", caption: "Presenting our work at Mpala Research Center" },
+  { src: "images/lab_microscope.jpg", caption: "Laikipia Governor visits the Lab" },
+  { src: "images/desert_background.jpg", caption: "Goof" },
+  { src: "images/snow_princeton.jpg", caption: "First time meeting a SnowWoman" },
+  { src: "images/lab_photo.jpg", caption: "The lab, where all the magic happens" },
   { src: "images/podcast_princeton.jpg", caption: "Science communication" },
-  { src: "images/cshl.jpg", caption: "Meetings and ideas" },
-  { src: "images/teaching_field_course.jpg", caption: "Teaching in the field" },
-  { src: "images/turkana_landscape.jpg", caption: "Turkana landscapes" },
+  { src: "images/cshl.jpg", caption: "Meetings and Learning" },
+  { src: "images/teaching_field_course.jpg", caption: "Heading to Turkana; Emma and Thomas" },
+  { src: "images/turkana_landscape.jpg", caption: "A warm welcome from the Turkana" },
   { src: "images/panama_canopy.jpg", caption: "Tropical field ecology" },
 ];
 
 const fieldImages = [
   {
     src: "images/ayroles_lab.jpg",
-    caption: "The lab as intellectual home: methods, mentorship, collaboration, and argument.",
+    caption: "The Ayroles lab where I have gotten mentorship, and so much support all through",
   },
   {
     src: "images/fieldwork_turkana_group.jpg",
-    caption: "Fieldwork as relationship: people, place, trust, and long-term scientific partnership.",
+    caption: "The field team; an awesome team of scientists and community leaders who make the Turkana Project a success.",
   },
   {
     src: "images/in_the_field.jpg",
-    caption: "The notebook view: observation before interpretation.",
+    caption: "Camping out in remote places and working with the remarkable Turkana people.",
   },
 ];
 
 const tags = [
   "metabolism",
-  "ecology",
-  "evolution",
   "human health",
   "inflammation",
   "lifestyle transitions",
@@ -266,11 +264,11 @@ export default function PersonalWebsite() {
               </div>
 
               <div className="mb-6 max-w-md border-l-2 border-[#b78b35] pl-4 text-sm leading-7 text-[#5d6658]">
-                Field note · metabolism, ecology, evolution, and human health
+                Lifestyle differences, genetics, metabolism, and human health
               </div>
 
               <h1 className="max-w-4xl text-5xl font-semibold leading-[0.96] tracking-[-0.055em] text-[#20231f] sm:text-6xl lg:text-7xl">
-                Studying how environments shape human biology.
+                Studying how different environments shape human biology.
               </h1>
 
               <p className="mt-8 max-w-2xl text-lg leading-8 text-[#4c5348]">
