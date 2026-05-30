@@ -52,29 +52,29 @@ const currentProjects = [
     icon: <Map className="h-5 w-5" />,
     eyebrow: "Population biology",
     title: "Turkana health and lifestyle transitions",
-    text: "Studying how rapid lifestyle change reshapes cardiometabolic health, inflammation, and biological variation across ecological contexts.",
-    image: "images/turkana_landscape.jpg",
+    text: "Studying how unique lifestyles and rapid lifestyle change reshapes metabolism and cardiometabolic disease risk.",
+    image: "images/turkana_machine.jpg",
   },
   {
     icon: <FlaskConical className="h-5 w-5" />,
     eyebrow: "Molecular phenotyping",
     title: "Targeted and untargeted metabolomics and lipidomics",
-    text: "Using mass spectrometry and NMR-based approaches to trace how metabolic pathways shift with environment, lifestyle, and immune activation.",
-    image: "images/lab_microscope.jpg",
+    text: "I use mass spectrometry and NMR-based approaches to quantify metabolic phenotypes",
+    image: "images/network_node.png",
   },
   {
     icon: <Waves className="h-5 w-5" />,
     eyebrow: "Lipid biology",
     title: "Lipoprotein subclasses, diet, and inflammation",
-    text: "Investigating how HDL and LDL subclasses change across dietary, inflammatory, and ecological contexts.",
-    image: "images/lifestyle_graphic.png",
+    text: "Investigating how Lipoprotein dynamics vary across contexts.",
+    image: "images/apolipo.png",
   },
   {
     icon: <Mouse className="h-5 w-5" />,
-    eyebrow: "Experimental model",
-    title: "Animal models: Mouse inflammation experiments",
+    eyebrow: "Experimental models",
+    title: "Animal models for studying metabolism.",
     text: "Testing inflammation-driven metabolic remodeling under controlled experimental conditions.",
-    image: "images/lab_photo.jpg",
+    image: "images/Mouse_model.png",
   },
 ];
 
@@ -111,20 +111,17 @@ const publications = [
 
 const galleryImages = [
   { src: "images/Diet_Turka.jpg", caption: "Food, ecology, and daily life" },
-  { src: "images/turkana_machine.jpg", caption: "Field measurements and logistics" },
-  { src: "images/landscape_background.jpg", caption: "Landscape as biological context" },
-  { src: "images/fieldwork_turkana_group.jpg", caption: "Collaborative fieldwork" },
+  { src: "images/turkana_machine.jpg", caption: "Real time lifestyle Transitions" },
+  { src: "images/Turkana_home.jpg", caption: "A Unique Lifestyle" },
   { src: "images/in_the_field.jpg", caption: "Notes from the field" },
   { src: "images/presentation.jpg", caption: "Presenting our work at Mpala Research Center" },
   { src: "images/lab_microscope.jpg", caption: "Laikipia Governor visits the Lab" },
-  { src: "images/desert_background.jpg", caption: "Goof" },
   { src: "images/snow_princeton.jpg", caption: "First time meeting a SnowWoman" },
   { src: "images/lab_photo.jpg", caption: "The lab, where all the magic happens" },
   { src: "images/podcast_princeton.jpg", caption: "Science communication" },
   { src: "images/cshl.jpg", caption: "Meetings and Learning" },
   { src: "images/teaching_field_course.jpg", caption: "Heading to Turkana; Emma and Thomas" },
   { src: "images/turkana_landscape.jpg", caption: "A warm welcome from the Turkana" },
-  { src: "images/panama_canopy.jpg", caption: "Tropical field ecology" },
 ];
 
 const fieldImages = [
@@ -281,7 +278,7 @@ export default function PersonalWebsite() {
               </p>
 
               <div className="mt-10 flex flex-wrap gap-3">
-                <LinkButton href="#research-focus">Enter the notebook</LinkButton>
+                <LinkButton href="#research-focus">Research Interests</LinkButton>
                 <LinkButton href="Benjamin_Muhoya_CV.pdf" variant="outline">
                   Download CV <ArrowUpRight className="h-4 w-4" />
                 </LinkButton>
@@ -300,17 +297,16 @@ export default function PersonalWebsite() {
               <div className="grid gap-4 sm:grid-cols-[0.86fr_1.14fr] lg:min-h-[660px]">
                 <div className="flex flex-col gap-4 sm:pt-20">
                   <ImageBlock
-                    src="images/landscape_background.jpg"
+                    src="images/Science_cover.png"
                     alt="Turkana landscape"
                     className="h-72 rounded-[2rem] border border-[#20231f]/10 shadow-sm"
                   />
                   <div className="rounded-[2rem] border border-[#20231f]/10 bg-[#eef0e6] p-6">
                     <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#8a6f2c]">
-                      Research terrain
+                      Science Cover
                     </p>
                     <p className="mt-3 text-sm leading-7 text-[#4c5348]">
-                      Ecology is not background. It is a biological force, a social condition, and a
-                      metabolic archive.
+                      The genetic basis of dehydration reselience in the Turkana People of Northern Kenya. 
                     </p>
                   </div>
                 </div>
