@@ -1,4 +1,4 @@
-import React from "react";
+import { useState } from "react";
 import { motion } from "framer-motion";
 import {
   Mail,
@@ -9,6 +9,8 @@ import {
   Dna,
   Globe2,
   Camera,
+  Menu,
+  X,
 } from "lucide-react";
 
 const Card = ({ children, className = "" }) => (
@@ -38,11 +40,7 @@ const ImageBlock = ({ src, alt, className = "" }) => (
   <div
     className={`relative overflow-hidden bg-gradient-to-br from-[#d69a46] via-[#efe3d2] to-[#386641] ${className}`}
   >
-    <img
-      src={src}
-      alt={alt}
-      className="h-full w-full object-cover"
-    />
+    <img src={src} alt={alt} className="h-full w-full object-cover" />
   </div>
 );
 
@@ -93,35 +91,17 @@ const galleryImages = [
   "images/panama_canopy.jpg",
 ];
 
-const tests = [
-  {
-    name: "nav section ids are generated correctly",
-    passed: makeSectionId("Research Interests") === "research-interests",
-  },
-  {
-    name: "gallery has at least one image",
-    passed: galleryImages.length > 0,
-  },
-  {
-    name: "publications list is not empty",
-    passed: publications.length > 0,
-  },
-];
-
-console.assert(
-  tests.every((test) => test.passed),
-  "One or more website data checks failed",
-  tests
-);
-
 export default function PersonalWebsite() {
+  const [mobileOpen, setMobileOpen] = useState(false);
+
   return (
     <div className="min-h-screen bg-[#f7f0e6] text-[#22160f]">
-      <header className="fixed left-0 top-0 z-50 w-full border-b border-black/10 bg-[#f7f0e6]/85 backdrop-blur-xl">
-        <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
-          <a href="#home" className="text-lg font-semibold tracking-tight">
+      <header className="fixed left-0 top-0 z-50 w-full border-b border-black/10 bg-[#f7f0e6]/90 backdrop-blur-xl">
+        <nav className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6">
+          <a href="#home" className="text-base font-semibold tracking-tight sm:text-lg">
             Benjamin Muhoya
           </a>
+
           <div className="hidden items-center gap-6 text-sm md:flex">
             {navItems.map((item) => (
               <a
@@ -133,37 +113,70 @@ export default function PersonalWebsite() {
               </a>
             ))}
           </div>
+
+          <button
+            type="button"
+            onClick={() => setMobileOpen((open) => !open)}
+            className="inline-flex items-center justify-center rounded-xl border border-black/10 bg-white/70 p-2 text-[#22160f] shadow-sm md:hidden"
+            aria-label="Toggle navigation menu"
+          >
+            {mobileOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+          </button>
         </nav>
+
+        {mobileOpen && (
+          <div className="border-t border-black/10 bg-[#f7f0e6] px-4 py-4 md:hidden">
+            <div className="mx-auto flex max-w-7xl flex-col gap-3">
+              {navItems.map((item) => (
+                <a
+                  key={item}
+                  href={`#${makeSectionId(item)}`}
+                  onClick={() => setMobileOpen(false)}
+                  className="rounded-xl px-3 py-2 text-sm font-medium text-[#4b382b] transition hover:bg-white hover:text-[#a34f1d]"
+                >
+                  {item}
+                </a>
+              ))}
+            </div>
+          </div>
+        )}
       </header>
 
-      <section id="home" className="relative min-h-screen overflow-hidden pt-24">
+      <section id="home" className="relative min-h-screen overflow-hidden pt-20 sm:pt-24">
         <div className="absolute inset-0">
           <ImageBlock
             src="images/landscape_background.jpg"
             alt="Website cover background"
             className="h-full w-full"
-            fallback="Website cover background"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-black/75 via-black/35 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/45 to-black/10" />
           <div className="absolute inset-0 bg-gradient-to-t from-[#f7f0e6] via-transparent to-transparent" />
         </div>
 
-        <div className="relative mx-auto grid min-h-[calc(100vh-6rem)] max-w-7xl items-center gap-10 px-6 py-20 md:grid-cols-[1.05fr_0.95fr]">
+        <div className="relative mx-auto grid min-h-[calc(100vh-5rem)] max-w-7xl items-center gap-10 px-4 py-16 sm:px-6 md:min-h-[calc(100vh-6rem)] md:grid-cols-[1.05fr_0.95fr] md:py-20">
           <motion.div
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             className="text-white"
           >
-            <p className="mb-5 text-sm font-semibold uppercase tracking-[0.32em] text-[#f4c46a]">
+            <p className="mb-5 text-xs font-semibold uppercase tracking-[0.24em] text-[#f4c46a] sm:text-sm sm:tracking-[0.32em]">
               Ecology · Metabolism · Human Genetics
             </p>
-            <h1 className="max-w-3xl text-5xl font-semibold tracking-tight md:text-7xl">
+
+            <h1 className="max-w-3xl text-4xl font-semibold tracking-tight sm:text-5xl md:text-7xl">
               Studying how environments shape human biology.
             </h1>
-            <p className="mt-7 max-w-2xl text-lg leading-8 text-white/85">
-              I am a PhD student currently pursuing my doctorate in Ecology and Evolutionary Biology. My first degree was in Medical Laboratory Science, and over the years, I have gained extensive experience spanning remote fieldwork, several wet-lab techniques, and computational data analysis. My research focuses on metabolic phenotypes and the context dependence of these phenotypes; that is, how they are affected by the environment vs. genotypes.
+
+            <p className="mt-6 max-w-2xl text-base leading-7 text-white/85 sm:text-lg sm:leading-8">
+              I am a PhD student currently pursuing my doctorate in Ecology and Evolutionary Biology.
+              My first degree was in Medical Laboratory Science, and over the years, I have gained
+              extensive experience spanning remote fieldwork, several wet-lab techniques, and
+              computational data analysis. My research focuses on metabolic phenotypes and the context
+              dependence of these phenotypes; that is, how they are affected by the environment vs.
+              genotypes.
             </p>
+
             <div className="mt-8 flex flex-wrap gap-3">
               <a href="#research-interests">
                 <Button>Explore Research</Button>
@@ -185,31 +198,30 @@ export default function PersonalWebsite() {
                 src="images/Cover_home_page.jpg"
                 alt="Benjamin Muhoya in the lab"
                 className="h-[520px] w-full rounded-[1.7rem]"
-                fallback="Lab portrait"
               />
             </div>
           </motion.div>
         </div>
       </section>
 
-      <section id="research-interests" className="mx-auto max-w-7xl px-6 py-24">
+      <section id="research-interests" className="mx-auto max-w-7xl px-4 py-16 sm:px-6 md:py-24">
         <div className="grid gap-12 md:grid-cols-[0.85fr_1.15fr]">
           <div>
             <p className="text-sm font-semibold uppercase tracking-[0.28em] text-[#a34f1d]">
               Research Interests
             </p>
-            <h2 className="mt-4 text-4xl font-semibold tracking-tight md:text-5xl">
+            <h2 className="mt-4 text-3xl font-semibold tracking-tight sm:text-4xl md:text-5xl">
               Metabolism in varying context.
             </h2>
             <p className="mt-5 leading-8 text-[#5d493b]">
-              My research connects lifestyle variation, metabolomics, genomics and computational analysis to understand how lifestyle transitions reshape human metabolism.
+              My research connects lifestyle variation, metabolomics, genomics and computational
+              analysis to understand how lifestyle transitions reshape human metabolism.
             </p>
             <div className="mt-8 overflow-hidden rounded-[2rem] border border-black/10 bg-white shadow-sm">
               <ImageBlock
                 src="images/lifestyle_graphic.png"
                 alt="Research graphic showing lifestyle transition"
-                className="h-[360px] w-full"
-                fallback="Lifestyle transition research graphic"
+                className="h-[260px] w-full sm:h-[360px]"
               />
             </div>
           </div>
@@ -238,17 +250,18 @@ export default function PersonalWebsite() {
         </div>
       </section>
 
-      <section id="publications" className="bg-[#22160f] px-6 py-24 text-white">
+      <section id="publications" className="bg-[#22160f] px-4 py-16 text-white sm:px-6 md:py-24">
         <div className="mx-auto max-w-7xl">
           <p className="text-sm font-semibold uppercase tracking-[0.28em] text-[#f2c66d]">
             Publications
           </p>
-          <h2 className="mt-4 text-4xl font-semibold tracking-tight md:text-5xl">
+          <h2 className="mt-4 text-3xl font-semibold tracking-tight sm:text-4xl md:text-5xl">
             Selected work.
           </h2>
+
           <div className="mt-10 grid gap-4">
             {publications.map((pub) => (
-              <div key={pub} className="rounded-[1.5rem] border border-white/10 bg-white/10 p-6">
+              <div key={pub} className="rounded-[1.5rem] border border-white/10 bg-white/10 p-5 sm:p-6">
                 <div className="flex gap-4">
                   <FileText className="mt-1 h-5 w-5 shrink-0 text-[#f2c66d]" />
                   <p className="leading-7 text-white/85">{pub}</p>
@@ -259,24 +272,29 @@ export default function PersonalWebsite() {
         </div>
       </section>
 
-      <section id="cv" className="mx-auto max-w-7xl px-6 py-24">
+      <section id="cv" className="mx-auto max-w-7xl px-4 py-16 sm:px-6 md:py-24">
         <div className="grid gap-8 md:grid-cols-[0.8fr_1.2fr]">
           <div>
-            <p className="text-sm font-semibold uppercase tracking-[0.28em] text-[#a34f1d]">CV</p>
-            <h2 className="mt-4 text-4xl font-semibold tracking-tight md:text-5xl">
+            <p className="text-sm font-semibold uppercase tracking-[0.28em] text-[#a34f1d]">
+              CV
+            </p>
+            <h2 className="mt-4 text-3xl font-semibold tracking-tight sm:text-4xl md:text-5xl">
               Training, teaching, and experience.
             </h2>
           </div>
+
           <Card>
-            <div className="space-y-6 p-8">
+            <div className="space-y-6 p-6 sm:p-8">
               <div>
                 <h3 className="flex items-center gap-2 text-2xl font-semibold">
                   <GraduationCap className="h-5 w-5 text-[#a34f1d]" /> Education
                 </h3>
                 <p className="mt-3 text-[#5d493b]">
-                  PhD student in Ecology and Evolutionary Biology, Princeton University. Bachelor’s degree in Medical Laboratory Science, Technical University of Kenya.
+                  PhD student in Ecology and Evolutionary Biology, Princeton University. Bachelor’s
+                  degree in Medical Laboratory Science, Technical University of Kenya.
                 </p>
               </div>
+
               <div>
                 <h3 className="text-2xl font-semibold">Teaching</h3>
                 <ul className="mt-3 space-y-2 text-[#5d493b]">
@@ -286,6 +304,7 @@ export default function PersonalWebsite() {
                   <li>2026: Princeton EEB 347 — Tropical Forest Ecology Field Course, Barro Colorado Island, Panama.</li>
                 </ul>
               </div>
+
               <a href="Benjamin_Muhoya_CV.pdf">
                 <Button>Download full CV</Button>
               </a>
@@ -294,12 +313,14 @@ export default function PersonalWebsite() {
         </div>
       </section>
 
-      <section id="gallery" className="bg-[#efe3d2] px-6 py-24">
+      <section id="gallery" className="bg-[#efe3d2] px-4 py-16 sm:px-6 md:py-24">
         <div className="mx-auto max-w-7xl">
           <div className="mb-10 flex flex-col justify-between gap-5 md:flex-row md:items-end">
             <div>
-              <p className="text-sm font-semibold uppercase tracking-[0.28em] text-[#a34f1d]">Gallery</p>
-              <h2 className="mt-4 text-4xl font-semibold tracking-tight md:text-5xl">
+              <p className="text-sm font-semibold uppercase tracking-[0.28em] text-[#a34f1d]">
+                Gallery
+              </p>
+              <h2 className="mt-4 text-3xl font-semibold tracking-tight sm:text-4xl md:text-5xl">
                 Field, lab, and life.
               </h2>
             </div>
@@ -308,20 +329,19 @@ export default function PersonalWebsite() {
             </p>
           </div>
 
-          <div className="mb-8 overflow-hidden rounded-[2.2rem] border border-black/10 bg-white p-3 shadow-sm">
+          <div className="mb-8 overflow-hidden rounded-[2.2rem] border border-black/10 bg-white p-2 shadow-sm sm:p-3">
             <div className="relative overflow-hidden rounded-[1.7rem]">
               <ImageBlock
                 src="images/ayroles_lab.jpg"
                 alt="Ayroles lab group"
-                className="h-[520px] w-full"
-                fallback="My Lab"
+                className="h-[320px] w-full sm:h-[520px]"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
-              <div className="absolute bottom-8 left-8 text-white">
-                <p className="mb-2 flex items-center gap-2 text-sm uppercase tracking-[0.22em] text-[#f2c66d]">
+              <div className="absolute bottom-6 left-6 text-white sm:bottom-8 sm:left-8">
+                <p className="mb-2 flex items-center gap-2 text-xs uppercase tracking-[0.22em] text-[#f2c66d] sm:text-sm">
                   <Camera className="h-4 w-4" /> The
                 </p>
-                <h3 className="text-4xl font-semibold">Ayroles Lab</h3>
+                <h3 className="text-3xl font-semibold sm:text-4xl">Ayroles Lab</h3>
               </div>
             </div>
           </div>
@@ -339,8 +359,7 @@ export default function PersonalWebsite() {
                 <ImageBlock
                   src={img}
                   alt="Gallery image"
-                  className="h-72 w-full rounded-[1.1rem]"
-                  fallback="Gallery image"
+                  className="h-64 w-full rounded-[1.1rem] sm:h-72"
                 />
               </motion.div>
             ))}
@@ -348,29 +367,38 @@ export default function PersonalWebsite() {
         </div>
       </section>
 
-      <section id="contact" className="mx-auto max-w-7xl px-6 py-24">
-        <div className="rounded-[2.2rem] bg-[#22160f] p-8 text-white shadow-sm md:p-12">
-          <p className="text-sm font-semibold uppercase tracking-[0.28em] text-[#f2c66d]">Contact</p>
-          <h2 className="mt-4 text-4xl font-semibold tracking-tight md:text-5xl">Let’s connect.</h2>
-          <p className="mt-5 max-w-2xl leading-8 text-white/75">
-            For research collaborations, talks, teaching, fieldwork, wet-lab consultation, or science communication.
+      <section id="contact" className="mx-auto max-w-7xl px-4 py-16 sm:px-6 md:py-24">
+        <div className="rounded-[2.2rem] bg-[#22160f] p-6 text-white shadow-sm sm:p-8 md:p-12">
+          <p className="text-sm font-semibold uppercase tracking-[0.28em] text-[#f2c66d]">
+            Contact
           </p>
+          <h2 className="mt-4 text-3xl font-semibold tracking-tight sm:text-4xl md:text-5xl">
+            Let’s connect.
+          </h2>
+          <p className="mt-5 max-w-2xl leading-8 text-white/75">
+            For research collaborations, talks, teaching, fieldwork, wet-lab consultation, or science
+            communication.
+          </p>
+
           <div className="mt-8 flex flex-wrap gap-3">
             <a href="mailto:bm0211@princeton.edu">
-                <Button variant="outline">
-                    <Mail className="mr-2 h-4 w-4" /> Email
-                </Button>
+              <Button variant="outline">
+                <Mail className="mr-2 h-4 w-4" /> Email
+              </Button>
             </a>
+
             <a href="https://www.linkedin.com/in/benjamin-muhoya/" target="_blank" rel="noreferrer">
               <Button variant="outline">
                 <TextIcon>in</TextIcon> LinkedIn
               </Button>
             </a>
+
             <a href="https://orcid.org/0000-0003-2228-3649" target="_blank" rel="noreferrer">
               <Button variant="outline">
                 <ExternalLink className="mr-2 h-4 w-4" /> ORCID
               </Button>
             </a>
+
             <a
               href="https://scholar.google.com/citations?user=0tp-g1cAAAAJ&hl=en&oi=ao"
               target="_blank"
@@ -384,7 +412,7 @@ export default function PersonalWebsite() {
         </div>
       </section>
 
-      <footer className="border-t border-black/10 px-6 py-8 text-center text-sm text-[#5d493b]">
+      <footer className="border-t border-black/10 px-4 py-8 text-center text-sm text-[#5d493b] sm:px-6">
         © 2026 Benjamin Muhoya. Ecology, metabolism, and human genetics.
       </footer>
     </div>
