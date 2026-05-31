@@ -20,7 +20,6 @@ import {
 const navItems = [
   { label: "Research Focus", href: "#research-focus" },
   { label: "Projects", href: "#current-projects" },
-  { label: "Fieldwork", href: "#fieldwork" },
   { label: "Writing", href: "#writing" },
   { label: "Gallery", href: "#gallery" },
   { label: "Contact", href: "#contact" },
@@ -31,7 +30,7 @@ const researchInterests = [
     number: "01",
     icon: <Microscope className="h-5 w-5" />,
     title: "Metabolic Phenotypes",
-    text: "I use NMR and mass spectrometry technologies to quantify metabolic phenotypes.",
+    text: "I use NMR and mass spectrometry technologies to quantify metabolic phenotypes and apply different computational and statistical methods to make sense of these complex data.",
   },
   {
     number: "02",
@@ -43,7 +42,7 @@ const researchInterests = [
     number: "03",
     icon: <Globe2 className="h-5 w-5" />,
     title: "Beyond the Western World",
-    text: "My research focuses on communities with lifestyles divergent from the Western lifestyle and how lifestyle shifts affect metabolic phenotypes.",
+    text: "My work is focused on communities with lifestyles divergent from the Western lifestyle and how lifestyle shifts affect metabolic phenotypes.",
   },
 ];
 
@@ -59,14 +58,14 @@ const currentProjects = [
     icon: <FlaskConical className="h-5 w-5" />,
     eyebrow: "Molecular phenotyping",
     title: "Targeted and untargeted metabolomics and lipidomics",
-    text: "I use mass spectrometry and NMR-based approaches to quantify metabolic phenotypes",
+    text: "I have used mass spec and NMR-based metabolomic approaches to quantify hundreds of metabolic phenotypes",
     image: "images/network_node.png",
   },
   {
     icon: <Waves className="h-5 w-5" />,
     eyebrow: "Lipid biology",
     title: "Lipoprotein subclasses, diet, and inflammation",
-    text: "Investigating how Lipoprotein dynamics vary across contexts.",
+    text: "Using current high resolution NMR technology I am investigating how Lipoprotein dynamics vary across contexts.",
     image: "images/apolipo.png",
   },
   {
@@ -110,34 +109,20 @@ const publications = [
 ];
 
 const galleryImages = [
-  { src: "images/Diet_Turka.jpg", caption: "Food, ecology, and daily life" },
+  { src: "images/cshl.jpg", caption: "Meetings and Learning" },
+  { src: "images/teaching_field_course.jpg", caption: "Heading to Turkana; Emma and Thomas" },
+  { src: "images/turkana_landscape.jpg", caption: "A warm welcome from the Turkana" },
   { src: "images/turkana_machine.jpg", caption: "Real time lifestyle Transitions" },
   { src: "images/Turkana_home.jpg", caption: "A Unique Lifestyle" },
-  { src: "images/in_the_field.jpg", caption: "Notes from the field" },
   { src: "images/presentation.jpg", caption: "Presenting our work at Mpala Research Center" },
   { src: "images/lab_microscope.jpg", caption: "Laikipia Governor visits the Lab" },
   { src: "images/snow_princeton.jpg", caption: "First time meeting a SnowWoman" },
   { src: "images/lab_photo.jpg", caption: "The lab, where all the magic happens" },
   { src: "images/podcast_princeton.jpg", caption: "Science communication" },
-  { src: "images/cshl.jpg", caption: "Meetings and Learning" },
-  { src: "images/teaching_field_course.jpg", caption: "Heading to Turkana; Emma and Thomas" },
-  { src: "images/turkana_landscape.jpg", caption: "A warm welcome from the Turkana" },
+  { src: "images/fieldwork_turkana_group.jpg", caption: "The Field Team in Kenya" },
+  { src: "images/ayroles_lab.jpg", caption: "The Ayroles Lab" },
 ];
 
-const fieldImages = [
-  {
-    src: "images/ayroles_lab.jpg",
-    caption: "The Ayroles lab where I have gotten mentorship, and so much support all through",
-  },
-  {
-    src: "images/fieldwork_turkana_group.jpg",
-    caption: "The field team; an awesome team of scientists and community leaders who make the Turkana Project a success.",
-  },
-  {
-    src: "images/in_the_field.jpg",
-    caption: "Camping out in remote places and working with the remarkable Turkana people.",
-  },
-];
 
 const tags = [
   "metabolism",
@@ -158,7 +143,7 @@ const ImageBlock = ({ src, alt, className = "", imgClassName = "" }) => (
 );
 
 const SectionKicker = ({ children }) => (
-  <p className="mb-4 text-xs font-semibold uppercase tracking-[0.28em] text-[#8a6f2c]">
+  <p className="mb-6 text-4xl font-semibold uppercase tracking-[0.18em] text-[#8a6f2c] sm:text-5xl">
     {children}
   </p>
 );
@@ -249,20 +234,6 @@ export default function PersonalWebsite() {
               transition={{ duration: 0.7 }}
               className="flex flex-col justify-center"
             >
-              <div className="mb-8 flex flex-wrap gap-2">
-                {tags.map((tag) => (
-                  <span
-                    key={tag}
-                    className="rounded-full border border-[#8fa37d]/40 bg-white/70 px-3 py-1 text-xs font-medium uppercase tracking-[0.12em] text-[#637357]"
-                  >
-                    {tag}
-                  </span>
-                ))}
-              </div>
-
-              <div className="mb-6 max-w-md border-l-2 border-[#b78b35] pl-4 text-sm leading-7 text-[#5d6658]">
-                Lifestyle differences, genetics, metabolism, and human health
-              </div>
 
               <h1 className="max-w-4xl text-5xl font-semibold leading-[0.96] tracking-[-0.055em] text-[#20231f] sm:text-6xl lg:text-7xl">
                 Studying how different environments shape human biology.
@@ -317,9 +288,6 @@ export default function PersonalWebsite() {
                     alt="Benjamin Muhoya"
                     className="h-[460px] rounded-[2.6rem] border border-[#20231f]/10 shadow-sm sm:h-[620px]"
                   />
-                  <p className="px-2 text-sm leading-6 text-[#6b705f]">
-                    Ecology · metabolism · genetics · inflammation · field systems
-                  </p>
                 </div>
               </div>
             </motion.div>
@@ -363,9 +331,6 @@ export default function PersonalWebsite() {
                         <span className="flex h-11 w-11 items-center justify-center rounded-full bg-[#eef0e6] text-[#637357]">
                           {item.icon}
                         </span>
-                        <span className="text-xs font-semibold uppercase tracking-[0.22em] text-[#8a6f2c]">
-                          Note {item.number}
-                        </span>
                       </div>
 
                       <h3 className="text-2xl font-semibold tracking-[-0.02em] text-[#20231f]">
@@ -386,11 +351,10 @@ export default function PersonalWebsite() {
                   />
                   <div className="rounded-[2rem] border border-[#20231f]/10 bg-[#f7efd9] p-7">
                     <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[#8a6f2c]">
-                      Working question
+                      Overarching Question
                     </p>
                     <p className="mt-4 text-2xl font-semibold leading-snug tracking-[-0.03em] text-[#20231f]">
-                      What happens to metabolic health when environments shift faster than biology,
-                      culture, and infrastructure can adapt?
+                      How do unique lifestyles shape the metabolome and what happens to metabolic health during and after lifestyle transitions?
                     </p>
                   </div>
                 </div>
@@ -405,12 +369,9 @@ export default function PersonalWebsite() {
               <div>
                 <SectionKicker>Current Projects</SectionKicker>
                 <h2 className="max-w-3xl text-4xl font-semibold leading-tight tracking-[-0.04em] sm:text-5xl">
-                  A research map across bodies, molecules, landscapes, and immune states.
                 </h2>
               </div>
               <p className="max-w-md text-base leading-8 text-[#5d6658]">
-                The projects connect population biology with molecular phenotyping and experimental
-                inflammation models.
               </p>
             </div>
 
@@ -462,64 +423,15 @@ export default function PersonalWebsite() {
           </div>
         </section>
 
-        <section id="fieldwork" className="px-4 py-20 sm:px-6 lg:px-8">
-          <div className="mx-auto max-w-7xl">
-            <div className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr]">
-              <div>
-                <SectionKicker>Fieldwork / Community / Story</SectionKicker>
-                <h2 className="max-w-xl text-4xl font-semibold leading-tight tracking-[-0.04em] sm:text-5xl">
-                  Science as a relationship with place, people, and time.
-                </h2>
-                <p className="mt-6 text-lg leading-8 text-[#5d6658]">
-                  My work is shaped by field systems, community partnerships, lab methods, and the
-                  long process of turning lived ecological context into careful biological inference.
-                </p>
-
-                <div className="mt-10 rounded-[2rem] border border-[#20231f]/10 bg-[#eef0e6] p-7">
-                  <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[#8a6f2c]">
-                    Archive note
-                  </p>
-                  <p className="mt-4 text-xl leading-8 tracking-[-0.02em] text-[#20231f]">
-                    It is the journey, the people, and the fun moments that make the work possible.
-                  </p>
-                </div>
-              </div>
-
-              <div className="grid gap-5">
-                {fieldImages.map((image, index) => (
-                  <figure
-                    key={image.src}
-                    className={`grid gap-4 rounded-[2rem] border border-[#20231f]/10 bg-white p-3 shadow-sm sm:grid-cols-[0.95fr_1.05fr] ${
-                      index === 1 ? "sm:translate-x-8" : ""
-                    }`}
-                  >
-                    <ImageBlock
-                      src={image.src}
-                      alt={image.caption}
-                      className="h-72 rounded-[1.5rem]"
-                    />
-                    <figcaption className="flex items-end p-4 text-base leading-8 text-[#4c5348]">
-                      {image.caption}
-                    </figcaption>
-                  </figure>
-                ))}
-              </div>
-            </div>
-          </div>
-        </section>
-
         <section id="writing" className="px-4 py-20 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-7xl">
             <div className="mb-12 grid gap-6 lg:grid-cols-[0.85fr_1.15fr]">
               <div>
-                <SectionKicker>Publications / Writing / Work</SectionKicker>
+                <SectionKicker>Publications</SectionKicker>
                 <h2 className="text-4xl font-semibold leading-tight tracking-[-0.04em] sm:text-5xl">
-                  Papers, manuscripts, essays, and project links.
                 </h2>
               </div>
               <p className="max-w-2xl text-lg leading-8 text-[#5d6658]">
-                A living shelf for formal publications, developing manuscripts, essays, and research
-                outputs.
               </p>
             </div>
 
@@ -553,11 +465,10 @@ export default function PersonalWebsite() {
               <div>
                 <SectionKicker>Gallery</SectionKicker>
                 <h2 className="max-w-3xl text-4xl font-semibold leading-tight tracking-[-0.04em] sm:text-5xl">
-                  A visual archive of field, lab, teaching, and life.
+                  Scenes from Turkana, the awesome people behing the work, and life....
                 </h2>
               </div>
               <p className="max-w-md text-base leading-8 text-[#5d6658]">
-                Images are kept as part of the notebook: no loud overlays, just context and memory.
               </p>
             </div>
 
@@ -598,11 +509,11 @@ export default function PersonalWebsite() {
                 <div className="p-8 sm:p-10 lg:p-12">
                   <SectionKicker>Contact</SectionKicker>
                   <h2 className="max-w-xl text-4xl font-semibold leading-tight tracking-[-0.04em] sm:text-5xl">
-                    Let’s connect across research, teaching, fieldwork, and ideas.
+                    Let’s connect
                   </h2>
                   <p className="mt-6 max-w-2xl text-lg leading-8 text-[#4c5348]">
-                    For research collaborations, talks, teaching, fieldwork, wet-lab consultation, or
-                    science communication.
+                    For collaborations, consultation, science communication
+                    or any idea you might have.
                   </p>
 
                   <div className="mt-10 flex flex-wrap gap-3">
@@ -636,7 +547,7 @@ export default function PersonalWebsite() {
 
                 <div className="relative min-h-[360px] bg-[#dfe4d4] p-4 lg:p-6">
                   <ImageBlock
-                    src="images/panama_canopy.jpg"
+                    src="images/Handshake.png"
                     alt="Panama canopy"
                     className="h-full min-h-[360px] rounded-[2rem] border border-white/70"
                   />
@@ -650,7 +561,7 @@ export default function PersonalWebsite() {
       <footer className="border-t border-[#20231f]/10 px-4 py-8 sm:px-6 lg:px-8">
         <div className="mx-auto flex max-w-7xl flex-col justify-between gap-3 text-sm text-[#5d6658] sm:flex-row">
           <p>© 2026 Benjamin Muhoya.</p>
-          <p>Ecology · metabolism · evolution · inflammation · lifestyle transitions</p>
+          <p>Context dependency of Metabolism</p>
         </div>
       </footer>
     </div>
