@@ -405,7 +405,6 @@ export default function PersonalWebsite() {
                             {project.icon}
                             {project.eyebrow}
                           </span>
-                          <span className="text-sm text-[#9b8b5c]">0{index + 1}</span>
                         </div>
 
                         <h3 className="text-2xl font-semibold leading-tight tracking-[-0.03em]">
@@ -452,7 +451,6 @@ export default function PersonalWebsite() {
                     <p className="mt-3 text-sm leading-7 text-[#5d6658]">{item.citation}</p>
                   </div>
 
-                  <span className="text-sm text-[#9b8b5c]">0{index + 1}</span>
                 </article>
               ))}
             </div>
