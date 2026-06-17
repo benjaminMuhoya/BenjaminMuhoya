@@ -116,7 +116,7 @@ const galleryImages = [
   { src: "images/Turkana_home.jpg", caption: "A Unique Lifestyle" },
   { src: "images/presentation.jpg", caption: "Presenting our work at Mpala Research Center" },
   { src: "images/lab_microscope.jpg", caption: "Laikipia Governor visits the Lab" },
-  { src: "images/snow_princeton.jpg", caption: "First time meeting a SnowWoman" },
+  { src: "images/snow_princeton.jpg", caption: "First time meeting a SnowWoman @ Princeton" },
   { src: "images/lab_photo.jpg", caption: "The lab, where all the magic happens" },
   { src: "images/podcast_princeton.jpg", caption: "Science communication" },
   { src: "images/fieldwork_turkana_group.jpg", caption: "The Field Team in Kenya" },
