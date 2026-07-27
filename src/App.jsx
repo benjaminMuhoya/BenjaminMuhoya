@@ -104,7 +104,9 @@ const publications = [
     title:
       "The built environment is more predictive of cardiometabolic health than other aspects of lifestyle in two rapidly transitioning Indigenous populations.",
     citation:
-      "Watowich M. M., Arner A. M., Wang S., Mwai C. M., Muhoya B., Mukoma B., Wallace I. J., Ayroles J. F., Kraft T. S., Lea A. J., et al. medRxiv, 2024.",
+      "Watowich M. M., Arner A. M., Wang S., Mwai C. M., Muhoya B., Mukoma B., Wallace I. J., Ayroles J. F., Kraft T. S., Lea A. J., et al. medRxiv preprint, August 2024.",
+    doi: "10.1101/2024.08.26.24312234",
+    href: "https://doi.org/10.1101/2024.08.26.24312234",
   },
 ];
 
@@ -449,6 +451,18 @@ export default function PersonalWebsite() {
                       {item.title}
                     </h3>
                     <p className="mt-3 text-sm leading-7 text-[#5d6658]">{item.citation}</p>
+                    {item.doi && (
+                      <a
+                        href={item.href}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="mt-4 inline-flex items-center gap-2 rounded-full border border-[#9aaa88]/50 bg-[#fbfaf4] px-4 py-2 text-xs font-semibold tracking-[0.04em] text-[#637357] transition hover:border-[#8a6f2c] hover:bg-[#f8f2df] hover:text-[#8a6f2c]"
+                        aria-label={`Open DOI ${item.doi}`}
+                      >
+                        DOI: {item.doi}
+                        <ExternalLink className="h-3.5 w-3.5" />
+                      </a>
+                    )}
                   </div>
 
                 </article>
