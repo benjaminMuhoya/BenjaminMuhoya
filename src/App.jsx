@@ -81,6 +81,24 @@ const publications = [
   {
     type: "Publication",
     title:
+      "Built environment is a key driver of cardiometabolic health in two Indigenous groups undergoing rapid lifestyle change.",
+    citation:
+      "Watowich M. M., Arner A. M., Wang S., John E., Kahumbu J. C., Kinyua P., Lopurudoi A., Lotukoi F., Mwai C. M., Muhoya B., et al. Evolution, Medicine, and Public Health, 14(1), 1–16, 2026.",
+    doi: "10.1093/emph/eoag007",
+    href: "https://doi.org/10.1093/emph/eoag007",
+  },
+  {
+    type: "Manuscript",
+    title:
+      "Urbanization exacerbates age-associated declines in cardiometabolic health in Turkana and Orang Asli.",
+    citation:
+      "Watowich M. M., Brassington L., Longtin A., Wang S., Rossow R., Reinhardt K. D., John E., Kahumbu J. C., Kinyua P., Lopurudoi A., Lotukoi F., Miano C., Muhoya B., et al. medRxiv preprint, June 2025.",
+    doi: "10.1101/2025.06.06.25329160",
+    href: "https://doi.org/10.1101/2025.06.06.25329160",
+  },
+  {
+    type: "Publication",
+    title:
       "Adaptations to water stress and pastoralism.",
     citation:
       "Lea A. J., Caldas I. V., Garske K. M., Kahumbu J., Kinyua P., Miano C., Muhoya B., Peng J., Rabinowitz J. D., Roichman A., et al. Science, 2025.",
@@ -98,15 +116,6 @@ const publications = [
       "Sex differences in immune function and disease risk are not easily explained by an evolutionary mismatch.",
     citation:
       "Arner A. M., Muhoya B., Snyder-Mackler N., Ayroles J. F., & Lea A. J. bioRxiv, 2024.",
-  },
-  {
-    type: "Manuscript",
-    title:
-      "The built environment is more predictive of cardiometabolic health than other aspects of lifestyle in two rapidly transitioning Indigenous populations.",
-    citation:
-      "Watowich M. M., Arner A. M., Wang S., Mwai C. M., Muhoya B., Mukoma B., Wallace I. J., Ayroles J. F., Kraft T. S., Lea A. J., et al. medRxiv preprint, August 2024.",
-    doi: "10.1101/2024.08.26.24312234",
-    href: "https://doi.org/10.1101/2024.08.26.24312234",
   },
 ];
 
