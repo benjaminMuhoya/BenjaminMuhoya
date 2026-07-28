@@ -13,7 +13,6 @@ import {
   FlaskConical,
   Mouse,
   Waves,
-  FileText,
   ArrowUpRight,
 } from "lucide-react";
 
@@ -79,45 +78,47 @@ const currentProjects = [
 
 const publications = [
   {
-    type: "Publication",
     title:
       "Built environment is a key driver of cardiometabolic health in two Indigenous groups undergoing rapid lifestyle change.",
-    citation:
-      "Watowich M. M., Arner A. M., Wang S., John E., Kahumbu J. C., Kinyua P., Lopurudoi A., Lotukoi F., Mwai C. M., Muhoya B., et al. Evolution, Medicine, and Public Health, 14(1), 1–16, 2026.",
-    doi: "10.1093/emph/eoag007",
-    href: "https://doi.org/10.1093/emph/eoag007",
+    authors:
+      "Watowich M. M., Arner A. M., Wang S., John E., Kahumbu J. C., Kinyua P., Lopurudoi A., Lotukoi F., Mwai C. M., Muhoya B., et al.",
   },
   {
-    type: "Manuscript",
     title:
       "Urbanization exacerbates age-associated declines in cardiometabolic health in Turkana and Orang Asli.",
-    citation:
-      "Watowich M. M., Brassington L., Longtin A., Wang S., Rossow R., Reinhardt K. D., John E., Kahumbu J. C., Kinyua P., Lopurudoi A., Lotukoi F., Miano C., Muhoya B., et al. medRxiv preprint, June 2025.",
-    doi: "10.1101/2025.06.06.25329160",
-    href: "https://doi.org/10.1101/2025.06.06.25329160",
+    authors:
+      "Watowich M. M., Brassington L., Longtin A., Wang S., Rossow R., Reinhardt K. D., John E., Kahumbu J. C., Kinyua P., Lopurudoi A., Lotukoi F., Miano C., Muhoya B., et al.",
   },
   {
-    type: "Publication",
     title:
       "Adaptations to water stress and pastoralism.",
-    citation:
-      "Lea A. J., Caldas I. V., Garske K. M., Kahumbu J., Kinyua P., Miano C., Muhoya B., Peng J., Rabinowitz J. D., Roichman A., et al. Science, 2025.",
+    authors:
+      "Lea A. J., Caldas I. V., Garske K. M., Kahumbu J., Kinyua P., Miano C., Muhoya B., Peng J., Rabinowitz J. D., Roichman A., et al.",
   },
   {
-    type: "Publication",
     title:
       "Socioeconomic status effects on health vary between rural and urban Turkana.",
-    citation:
-      "Lea A. J., Waigwa C., Muhoya B., Lotukoi F., Peng J., Henry L., Abhyankar V., et al. Evolution, Medicine, and Public Health, 2021.",
+    authors:
+      "Lea A. J., Waigwa C., Muhoya B., Lotukoi F., Peng J., Henry L., Abhyankar V., et al.",
   },
   {
-    type: "Manuscript",
     title:
       "Sex differences in immune function and disease risk are not easily explained by an evolutionary mismatch.",
-    citation:
-      "Arner A. M., Muhoya B., Snyder-Mackler N., Ayroles J. F., & Lea A. J. bioRxiv, 2024.",
+    authors:
+      "Arner A. M., Muhoya B., Snyder-Mackler N., Ayroles J. F., & Lea A. J.",
   },
 ];
+
+const formatAuthors = (authors) =>
+  authors.split(/(Muhoya)/gi).map((part, index) =>
+    part.toLowerCase() === "muhoya" ? (
+      <strong key={`${part}-${index}`} className="font-semibold text-black">
+        MUHOYA
+      </strong>
+    ) : (
+      part
+    ),
+  );
 
 const galleryImages = [
   { src: "images/cshl.jpg", caption: "Meetings and Learning" },
@@ -446,34 +447,16 @@ export default function PersonalWebsite() {
             </div>
 
             <div className="divide-y divide-[#20231f]/10 overflow-hidden rounded-[2rem] border border-[#20231f]/10 bg-white shadow-sm">
-              {publications.map((item, index) => (
-                <article key={item.title} className="grid gap-4 p-6 transition hover:bg-[#fbfaf4] md:grid-cols-[160px_1fr_auto] md:p-8">
-                  <div className="flex items-start gap-3">
-                    <FileText className="mt-1 h-4 w-4 text-[#8fa37d]" />
-                    <span className="text-xs font-semibold uppercase tracking-[0.18em] text-[#8a6f2c]">
-                      {item.type}
-                    </span>
-                  </div>
-
+              {publications.map((item) => (
+                <article key={item.title} className="p-6 transition hover:bg-[#fbfaf4] md:p-8">
                   <div>
                     <h3 className="text-xl font-semibold leading-snug tracking-[-0.02em] text-[#20231f]">
                       {item.title}
                     </h3>
-                    <p className="mt-3 text-sm leading-7 text-[#5d6658]">{item.citation}</p>
-                    {item.doi && (
-                      <a
-                        href={item.href}
-                        target="_blank"
-                        rel="noreferrer"
-                        className="mt-4 inline-flex items-center gap-2 rounded-full border border-[#9aaa88]/50 bg-[#fbfaf4] px-4 py-2 text-xs font-semibold tracking-[0.04em] text-[#637357] transition hover:border-[#8a6f2c] hover:bg-[#f8f2df] hover:text-[#8a6f2c]"
-                        aria-label={`Open DOI ${item.doi}`}
-                      >
-                        DOI: {item.doi}
-                        <ExternalLink className="h-3.5 w-3.5" />
-                      </a>
-                    )}
+                    <p className="mt-3 text-sm leading-7 text-[#5d6658]">
+                      {formatAuthors(item.authors)}
+                    </p>
                   </div>
-
                 </article>
               ))}
             </div>
